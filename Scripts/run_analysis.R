@@ -44,6 +44,7 @@ variable_names <- sub("Gyro", "Gyroscope", variable_names)
 variable_names <- sub("Mag", "Magnitude", variable_names)
 variable_names <- sub("mean", "Mean", variable_names)
 variable_names <- sub("std", "StandardDeviation", variable_names)
+variable_names <- sub("$", "_Average", variable_names)
 names(dataset)[1:length(variable_names)] <- variable_names
 
 #STEP 6: Change numbers in ActivityLabel column by actual activity names (as a factor)
