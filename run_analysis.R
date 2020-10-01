@@ -2,6 +2,7 @@
 
 #Load the needed libraries
 library(dplyr)
+library(data.table)
 
 #STEP 1: Get the untidy dataset from the Internet and unzip it
 download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", destfile = "Data.zip", method = "curl")
@@ -23,10 +24,11 @@ y_test <- readLines("UCI\ HAR\ Dataset/test/y_test.txt", n = 7352)
 subject_test <- readLines("UCI\ HAR\ Dataset/test/subject_test.txt", n = 7352)
 #Append y_test and subject_test at the end of X_test
 test <- mutate(X_test, ActivityLabel = y_test)
-test <- mutate(test, SubjectId = as.numeric(subject_test))
+test <- mutate(test, SubjectId = subject_test)
 
 #STEP 4: Join train and test repositories into a single one
 dataset <- rbind(train, test)
+dataset$SubjectId <- as.numeric(dataset$SubjectId)
 
 #STEP 5: Extract only those dataset variables on a mean and standard deviation
 #Get the variables
@@ -34,7 +36,7 @@ variables <- readLines("UCI\ HAR\ Dataset/features.txt", n = 561)
 search_pattern <- "-mean\\(\\)|-std\\(\\)"
 dataset <- dataset[grepl(search_pattern, variables)]
 
-#STEP 6: Give variables (columns) appropriate names
+#STEP 6: Give variables (columns) more readable names
 #Delete the numbers and space at the beggining of the column names
 variable_names <- sub("^[0-9]+ ", "", grep(search_pattern, variables, value=TRUE))
 #Delete the parenthesis at the end of the column names
