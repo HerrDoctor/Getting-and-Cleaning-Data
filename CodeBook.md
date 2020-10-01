@@ -8,7 +8,7 @@ This tidy dataset has been produced from the raw dataset stored in "Data/UCI HAR
 
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of 561 features was obtained by calculating statistical variables from the time and frequency domain. The frequency-related variables were calculated through Fast Fourier Transform (FFT). These variables are explained in detail below. 
 
-The raw data set of 561 variables per window was procesed by the file "Scripts/run_analysis.R", which selects only those features related to the mean and standard deviation of each window, adds two columns indicating the subject (volunteer) and the performed activity, and calculates the average of each variable per each combination of activity and subject (volunteer).
+The raw data set of 561 variables per window was procesed by the file "run_analysis.R", which selects only those features related to the mean and standard deviation of each window, adds two columns indicating the subject (volunteer) and the performed activity, and calculates the average of each variable per each combination of activity and subject (volunteer).
 
 
 ## Code Book

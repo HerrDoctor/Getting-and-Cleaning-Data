@@ -7,7 +7,7 @@ Course Project "Getting and Cleaning Data" for Data Science Specialization at Co
 
 ## Data Analysis
 
-Starting from the raw dataset stored in "Data/UCI HAR Dataset", a tidy data set has been produced. The UCI HAR Dataset includes HAR (Human Activity Recognition) data from the smartphones of 30 volunteers. Details about this untidy dataset can be found at "Data/UCI HAR Dataset/README.txt". The resulting tidy dataset has been obtained running the script "Scripts/run_analysis.R", which produces a dataframe whose variables are explained in detail at "CodeBook.html". That file also explaines the procedure followed to obtain the tidy data set.
+Starting from the raw dataset stored in "Data/UCI HAR Dataset", a tidy data set has been produced. The UCI HAR Dataset includes HAR (Human Activity Recognition) data from the smartphones of 30 volunteers. Details about this untidy dataset can be found at "Data/UCI HAR Dataset/README.txt". The resulting tidy dataset has been obtained running the script "run_analysis.R", which produces a dataframe whose variables are explained in detail at "CodeBook.html". That file also explaines the procedure followed to obtain the tidy data set.
 
 
 ## Files
@@ -40,13 +40,13 @@ These are the variables of the UCI HAR Dataset. All the "acceleration" variables
 * **CodeBook.html**: Code Book explaining the variables contained in the dataset and how it was produced (HTML file).
 * **README.md**: Readme file (R Markdown file).
 * **README.html**: Readme file (HTML file).
-* **Scripts/run_analysis.R**: R script you need to run to obtain the tidy dataset.
+* **run_analysis.R**: R script you need to run to obtain the tidy dataset.
 * **Output/averages_per_activity_and_subject.txt**: Output of run_analysis.R script: the produced dataframe written in txt format (with the write.table() command).
 
 
 ## Notes
 
-* The script "Scripts/run_analysis.R" makes use of the dplyr package. In case you need, you can install it running:
+* The script "run_analysis.R" makes use of the dplyr package. In case you need, you can install it running:
 
 ```
 install.packages("dplyr")
