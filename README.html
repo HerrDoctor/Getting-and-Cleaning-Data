@@ -372,28 +372,37 @@ summary {
 </div>
 <div id="section" class="section level3">
 <h3>01/10/2020</h3>
-<p>Course Project “Getting and Cleaning Data” for Data Science Specialization at Coursera</p>
+<p>This file is intended to explain the analysis performed in the ‘Getting and Cleaning Data’ Course Project for Data Science Specialization at Coursera.</p>
 </div>
 <div id="data-analysis" class="section level2">
 <h2>Data Analysis</h2>
-<p>Starting from the raw dataset stored in “Data/UCI HAR Dataset”, a tidy data set has been produced. The UCI HAR Dataset includes HAR (Human Activity Recognition) data from the smartphones of 30 volunteers. Details about this untidy dataset can be found at “Data/UCI HAR Dataset/README.txt”. The resulting tidy dataset has been obtained running the script “run_analysis.R”, which produces a dataframe whose variables are explained in detail at “CodeBook.html”. That file also explaines the procedure followed to obtain the tidy data set.</p>
-<p>The <strong>steps</strong> performed by the script to obtain the tidy set are:</p>
+<p>Starting from the raw dataset that can be downloaded <a href="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip">here</a>, a tidy data set has been produced following the recipe explained below. The UCI HAR Dataset includes HAR (Human Activity Recognition) data from the smartphones of 30 volunteers. Details about this raw dataset can be found at its readme file (UCI HAR Dataset/README.txt). The resulting tidy dataset has been obtained running the script <a href="https://github.com/HerrDoctor/Getting-and-Cleaning-Data/blob/master/run_analysis.R">run_analysis.R</a>, which produces a dataframe whose variables and general features are explained in detail in the <a href="https://github.com/HerrDoctor/Getting-and-Cleaning-Data/blob/master/CodeBook.md">CodeBook</a>.</p>
+<p>The recipe to produce the tidy data set has the following <strong>steps</strong>:</p>
 <ol style="list-style-type: decimal">
-<li>Get the untidy dataset from the Internet and unzip it</li>
+<li>Download the raw dataset from the Internet and unzip it</li>
 <li>Get the data containing the training set, training labels and subject labels (for the training set) and merge into a single data frame</li>
 <li>Get the data containing the test set, test labels and subject labels (for the test set) and merge into a single data frame</li>
-<li>Join train and test repositories into a single one</li>
-<li>Extract only those dataset variables on a mean and standard deviation</li>
-<li>Give variables (columns) more readable names</li>
-<li>Change numbers in ActivityLabel column by actual activity names (as a factor)</li>
-<li>Create groups in dataset based on SubjectId and ActivityLabel, produce a second tidy data set with the average for each variable for each activity and each subject, and write it to the file tidy_data_set.txt</li>
+<li>Merge the dataframes produced at steps 2 and 3 into a single one</li>
+<li>Extract only those dataset variables on a mean and standard deviation, discard others</li>
+<li>Give variables (columns) more readable names, according to the criteria explained at the <a href="https://github.com/HerrDoctor/Getting-and-Cleaning-Data/blob/master/CodeBook.md">CodeBook</a></li>
+<li>Change numeric values of the “ActivityLabel” column by the actual activity names (column class set to factor instead of character)</li>
+<li>Create groups in dataset based on “SubjectId” and “ActivityLabel”, produce a second tidy data set with the average for each variable for each activity and each subject, and write it to the file tidy_data_set.txt</li>
 </ol>
 </div>
 <div id="files" class="section level2">
 <h2>Files</h2>
-<p>This dataset includes the following files:</p>
+<div id="files-of-this-repository" class="section level4">
+<h4>Files of this repository</h4>
+<ul>
+<li><strong><a href="https://github.com/HerrDoctor/Getting-and-Cleaning-Data/blob/master/CodeBook.md">README.md</a></strong> | <strong><a href="https://github.com/HerrDoctor/Getting-and-Cleaning-Data/blob/master/README.html">README.html</a></strong>: Readme file.</li>
+<li><strong><a href="https://github.com/HerrDoctor/Getting-and-Cleaning-Data/blob/master/CodeBook.md">CodeBook.md</a></strong> | <strong><a href="https://github.com/HerrDoctor/Getting-and-Cleaning-Data/blob/master/CodeBook.html">CodeBook.html</a></strong>: Code Book explaining the variables contained in the dataset and how it was produced</li>
+<li><a href="https://github.com/HerrDoctor/Getting-and-Cleaning-Data/blob/master/run_analysis.R">run_analysis.R</a>: R script you need to run to obtain the tidy dataset.</li>
+<li><a href="https://github.com/HerrDoctor/Getting-and-Cleaning-Data/blob/master/tidy_data_set.txt">tidy_data_set.txt</a>: Output of run_analysis.R script: the produced dataframe written in txt format (with the write.table() command).</li>
+</ul>
+</div>
 <div id="uci-har-dataset-files" class="section level4">
 <h4>UCI HAR Dataset Files</h4>
+<p>The UCI HAR Dataset includes the following files:</p>
 <ul>
 <li><strong>README.txt</strong>: Readme file of the untidy dataset.</li>
 <li><strong>features_info.txt</strong>: Shows information about the variables used on the data frame.</li>
@@ -413,22 +422,11 @@ summary {
 </ul>
 <p>These are the variables of the UCI HAR Dataset. All the “acceleration” variables are measured in standard gravity units “g” units (m/s^2). All the “angular velocity” units are measured in radians per second (rad/s).</p>
 </div>
-<div id="tidy-dataset-files" class="section level4">
-<h4>Tidy Dataset Files</h4>
-<ul>
-<li><strong>CodeBook.md</strong>: Code Book explaining the variables contained in the dataset and how it was produced (R Markdown file).</li>
-<li><strong>CodeBook.html</strong>: Code Book explaining the variables contained in the dataset and how it was produced (HTML file).</li>
-<li><strong>README.md</strong>: Readme file (R Markdown file).</li>
-<li><strong>README.html</strong>: Readme file (HTML file).</li>
-<li><strong>run_analysis.R</strong>: R script you need to run to obtain the tidy dataset.</li>
-<li><strong>Output/averages_per_activity_and_subject.txt</strong>: Output of run_analysis.R script: the produced dataframe written in txt format (with the write.table() command).</li>
-</ul>
-</div>
 </div>
 <div id="notes" class="section level2">
 <h2>Notes</h2>
 <ul>
-<li>The script “run_analysis.R” makes use of the dplyr package. In case you need, you can install it running:</li>
+<li>The script <a href="https://github.com/HerrDoctor/Getting-and-Cleaning-Data/blob/master/run_analysis.R">run_analysis.R</a> makes use of the dplyr package. In case you need, you can install it running:</li>
 </ul>
 <pre><code>install.packages(&quot;dplyr&quot;)</code></pre>
 </div>
