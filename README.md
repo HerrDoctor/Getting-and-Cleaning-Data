@@ -9,6 +9,16 @@ Course Project "Getting and Cleaning Data" for Data Science Specialization at Co
 
 Starting from the raw dataset stored in "Data/UCI HAR Dataset", a tidy data set has been produced. The UCI HAR Dataset includes HAR (Human Activity Recognition) data from the smartphones of 30 volunteers. Details about this untidy dataset can be found at "Data/UCI HAR Dataset/README.txt". The resulting tidy dataset has been obtained running the script "run_analysis.R", which produces a dataframe whose variables are explained in detail at "CodeBook.html". That file also explaines the procedure followed to obtain the tidy data set.
 
+The **steps** performed by the script run_analysis.R to obtain the tidy set are:
+
+1. Get the untidy dataset from the Internet and unzip it
+2. Get the data containing the training set, training labels and subject labels (for the training set) and merge into a single data frame
+3. Get the data containing the test set, test labels and subject labels (for the test set) and merge into a single data frame
+4. Join train and test repositories into a single one
+5. Extract only those dataset variables on a mean and standard deviation
+6. Give variables (columns) more readable names
+7. Change numbers in ActivityLabel column by actual activity names (as a factor)
+8. Create groups in dataset based on SubjectId and ActivityLabel, produce a second tidy data set with the average for each variable for each activity and each subject, and write it to the file tidy_data_set.txt
 
 ## Files
 

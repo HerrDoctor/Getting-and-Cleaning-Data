@@ -59,6 +59,6 @@ activity_names <- sub("^[0-9]+ ", "", readLines("UCI\ HAR\ Dataset/activity_labe
 dataset$ActivityLabel <- factor(dataset$ActivityLabel, labels = activity_names)
 
 #STEP 8: Create groups in dataset based on SubjectId and ActivityLabel, produce a second tidy data set with
-#the average for each variable for each activity and each subject and write it to the file tidy_data_set.txt
+#the average for each variable for each activity, and each subject and write it to the file tidy_data_set.txt
 average_dataset <- dataset %>% group_by(SubjectId, ActivityLabel) %>% summarize_all(mean, na.rm = TRUE)
 write.table(average_dataset, file = "tidy_data_set.txt", row.names = FALSE)

@@ -376,7 +376,18 @@ summary {
 </div>
 <div id="data-analysis" class="section level2">
 <h2>Data Analysis</h2>
-<p>Starting from the raw dataset stored in “Data/UCI HAR Dataset”, a tidy data set has been produced. The UCI HAR Dataset includes HAR (Human Activity Recognition) data from the smartphones of 30 volunteers. Details about this untidy dataset can be found at “Data/UCI HAR Dataset/README.txt”. The resulting tidy dataset has been obtained running the script “Scripts/run_analysis.R”, which produces a dataframe whose variables are explained in detail at “CodeBook.html”. That file also explaines the procedure followed to obtain the tidy data set.</p>
+<p>Starting from the raw dataset stored in “Data/UCI HAR Dataset”, a tidy data set has been produced. The UCI HAR Dataset includes HAR (Human Activity Recognition) data from the smartphones of 30 volunteers. Details about this untidy dataset can be found at “Data/UCI HAR Dataset/README.txt”. The resulting tidy dataset has been obtained running the script “run_analysis.R”, which produces a dataframe whose variables are explained in detail at “CodeBook.html”. That file also explaines the procedure followed to obtain the tidy data set.</p>
+<p>The <strong>steps</strong> performed by the script to obtain the tidy set are:</p>
+<ol style="list-style-type: decimal">
+<li>Get the untidy dataset from the Internet and unzip it</li>
+<li>Get the data containing the training set, training labels and subject labels (for the training set) and merge into a single data frame</li>
+<li>Get the data containing the test set, test labels and subject labels (for the test set) and merge into a single data frame</li>
+<li>Join train and test repositories into a single one</li>
+<li>Extract only those dataset variables on a mean and standard deviation</li>
+<li>Give variables (columns) more readable names</li>
+<li>Change numbers in ActivityLabel column by actual activity names (as a factor)</li>
+<li>Create groups in dataset based on SubjectId and ActivityLabel, produce a second tidy data set with the average for each variable for each activity and each subject, and write it to the file tidy_data_set.txt</li>
+</ol>
 </div>
 <div id="files" class="section level2">
 <h2>Files</h2>
@@ -409,7 +420,7 @@ summary {
 <li><strong>CodeBook.html</strong>: Code Book explaining the variables contained in the dataset and how it was produced (HTML file).</li>
 <li><strong>README.md</strong>: Readme file (R Markdown file).</li>
 <li><strong>README.html</strong>: Readme file (HTML file).</li>
-<li><strong>Scripts/run_analysis.R</strong>: R script you need to run to obtain the tidy dataset.</li>
+<li><strong>run_analysis.R</strong>: R script you need to run to obtain the tidy dataset.</li>
 <li><strong>Output/averages_per_activity_and_subject.txt</strong>: Output of run_analysis.R script: the produced dataframe written in txt format (with the write.table() command).</li>
 </ul>
 </div>
@@ -417,7 +428,7 @@ summary {
 <div id="notes" class="section level2">
 <h2>Notes</h2>
 <ul>
-<li>The script “Scripts/run_analysis.R” makes use of the dplyr package. In case you need, you can install it running:</li>
+<li>The script “run_analysis.R” makes use of the dplyr package. In case you need, you can install it running:</li>
 </ul>
 <pre><code>install.packages(&quot;dplyr&quot;)</code></pre>
 </div>
